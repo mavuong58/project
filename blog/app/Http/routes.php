@@ -32,3 +32,15 @@ Route::post('authentication/postLogin',['as'=>'postLogin','uses'=>'Auth\AuthCont
 Route::get('authentication/home',function(){
 	return view('home');
 });
+
+Route::get('test',function(){
+	return view('admin.wallet.add');
+});
+
+Route::group(['prefix'=>'admin'], function(){
+	Route::group(['prefix'=>'wallet'],function(){
+		Route::get('list',['as'=>'admin.wallet.list','uses'=>'WalletController@getList']);
+		Route::get('add',['as'=>'admin.wallet.getAdd','uses'=>'WalletController@getAdd']);
+		Route::post('add',['as'=>'admin.wallet.postAdd','uses'=>'WalletController@postAdd']);
+	});
+});
