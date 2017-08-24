@@ -26,7 +26,7 @@
     <!-- DataTables Responsive CSS -->
     <link href="{{ url('public/admin/bower_components/datatables-responsive/css/dataTables.responsive.css') }}" rel="stylesheet">
 </head>
-
+ 
 <body>
 
     <div id="wrapper">
@@ -40,7 +40,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ url('/home') }}">Money</a>
+                <a class="navbar-brand" href="{{ url('/') }}">Money</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -155,6 +155,8 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="{{ url('public/admin/dist/js/sb-admin-2.js') }}"></script>
+
+    <script src="{{ url('public/admin/js/myjs.js') }}"></script>
 
     <!-- DataTables JavaScript -->
     <script src="{{ url('public/admin/bower_components/DataTables/media/js/jquery.dataTables.min.js') }}"></script>

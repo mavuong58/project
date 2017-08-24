@@ -11,7 +11,8 @@ use App\Wallet;
 class WalletController extends Controller
 {
 	public function getList(){
-		return view('admin.wallet.list');
+        $data = Wallet::select('id','name','amount')->orderBy('id','DESC')->get()->toArray();
+		return view('admin.wallet.list',compact('data'));
 	}
     public function getAdd(){
     	return view('admin.wallet.add');
@@ -23,5 +24,16 @@ class WalletController extends Controller
     	$wallet->user_id = Auth::user()->id;
     	$wallet->save();
     	return redirect()->route('admin.wallet.list');
+    }
+    public function getDelete($id){
+            $wallet = Wallet::find($id);
+            $wallet->delete($id);
+            return redirect()->route('admin.wallet.list')->with(['flash_level'=>'success','flash_message'=>'success !! complate delete wallet']);
+    }
+    public function getEdit(){
+
+    }
+    public function postEdit(){
+
     }
 }

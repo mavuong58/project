@@ -40,14 +40,14 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Laravel
+                    Money
                 </a>
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">Home</a></li>
+                    <li><a href="{{ url('/admin/wallet/list') }}">Home</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -85,6 +85,7 @@
                 </ul>
             </div>
         </div>
+
     </nav>
 
     @yield('content')

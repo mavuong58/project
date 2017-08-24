@@ -60,10 +60,10 @@ class AuthController extends Controller
         $thanhvien->birthday = $request->birthday;
         $thanhvien->check = 1;
         $thanhvien->save();
-
+        return redirect('');
 
     }
-
+ 
     public function getLogin (){
         return view('auth.login');
     }
