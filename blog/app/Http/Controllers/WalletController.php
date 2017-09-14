@@ -30,10 +30,20 @@ class WalletController extends Controller
             $wallet->delete($id);
             return redirect()->route('admin.wallet.list')->with(['flash_level'=>'success','flash_message'=>'success !! complate delete wallet']);
     }
-    public function getEdit(){
-
+    public function getEdit($id){
+        $data = Wallet::findOrFail($id)->toArray();
+        return view('admin.wallet.edit',compact('data','id'));
     }
-    public function postEdit(){
-
+    public function postEdit(Request $request,$id){
+        $this->validate($request,
+                ["txtName" => "required"],
+                ["txtName.required" => "please enter name wallet"]
+            );
+        $wallet = Wallet::find($id);
+        $wallet->name = $request->txtName;
+        $wallet->amount = $request->txtAmount;
+        $wallet->user_id = Auth::user()->id;
+        $wallet->save();
+        return redirect()->route('admin.wallet.list');
     }
 }
