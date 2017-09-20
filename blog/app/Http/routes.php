@@ -45,7 +45,8 @@ Route::group(['prefix'=>'admin'], function(){
 		Route::get('delete/{id}',['as'=>'admin.wallet.getDelete','uses'=>'WalletController@getDelete']);
 		Route::get('edit/{id}',['as'=>'admin.wallet.getEdit','uses'=>'WalletController@getEdit']);
 		Route::post('edit/{id}',['as'=>'admin.wallet.postEdit','uses'=>'WalletController@postEdit']);
-
+		Route::get('transfer',['as'=>'admin.wallet.getTransfer','uses'=>'WalletController@getTransfer']);
+		Route::post('transfer',['as'=>'admin.wallet.postTransfer','uses'=>'WalletController@postTransfer']);
 
 	});
 });

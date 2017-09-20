@@ -30,7 +30,7 @@
             <label>Amount</label>
             <input class="form-control" name="txtAmount" placeholder="Please Enter Amount" value="{!! old('txtAmount',isset($data) ? $data['amount'] : null) !!}" />
         </div>
-        <button type="submit" class="btn btn-default">Product Edit</button>
+        <button type="submit" class="btn btn-default">Wallet Edit</button>
         <button type="reset" class="btn btn-default">Reset</button>
     <form>
 </div>

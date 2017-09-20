@@ -7,6 +7,7 @@ use App\Http\Requests\WalletRequest;
 use Auth;
 use App\Http\Requests;
 use App\Wallet;
+use App\Transfers_money;
 
 class WalletController extends Controller
 {
@@ -46,4 +47,45 @@ class WalletController extends Controller
         $wallet->save();
         return redirect()->route('admin.wallet.list');
     }
+    public function getTransfer(){
+       // $transfer = Transfers_money::select('id','transfer_wallet','receive_wallet',)
+        //$receive = 
+        $wallet = Wallet::select('id','name')->get()->toArray();
+        return view('admin.wallet.transfer',compact('wallet'));
+    }
+    public function postTransfer(Request $request){
+        $transfer = Wallet::find($request->sltTransfer);
+        $receive = Wallet::find($request->sltReceive);
+        $transfers_money = new Transfers_money;
+
+        $this->validate($request,
+                ["txtAmount" => "required"],
+                ["txtAmount.required" => "please enter amount"]
+                // [ $transfer->amount >= $request->txtAmount ]
+            );
+
+        
+        $transfer->name = $transfer->name;
+        $transfer->amount =$transfer->amount - $request->txtAmount;
+        $transfer->user_id = $transfer->user_id;
+        $transfer->save();
+
+        $receive = Wallet::find($request->sltReceive);
+        $receive->name = $receive->name;
+        $receive->amount =$receive->amount + $request->txtAmount;
+        $receive->user_id = $receive->user_id;
+        $receive->save();
+
+        $transfers_money = new Transfers_money;
+        $transfers_money->transfer_wallet = $request->sltTransfer;
+        $transfers_money->receive_wallet  = $request->sltReceive;
+        $transfers_money->amount = $request->txtAmount;
+        $transfers_money->describe = $request->txtDescribe;
+        $transfers_money->save();
+
+        return redirect()->route('admin.wallet.list');
+   }
+
+
+
 }

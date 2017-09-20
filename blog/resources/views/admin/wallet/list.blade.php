@@ -6,6 +6,9 @@
     </h1>
 </div>
 <!-- /.col-lg-12 -->
+<form action="{!! route('admin.wallet.getTransfer') !!}" method="get" accept-charset="utf-8">
+        <button type="submit" class="btn btn-default" style="float: right; margin-bottom: 20px;width: 170px;">Transfers Moneys</button>
+
 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
     <thead>
         <tr align="center">
@@ -30,4 +33,6 @@
         @endforeach
     </tbody>
 </table>
+</form>
+
 @endsection()

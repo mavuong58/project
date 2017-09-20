@@ -26,8 +26,8 @@
             <label>amount</label>
             <input class="form-control" name="txtAmount" placeholder="Please Enter Amount" />
         </div>
-        <button type="submit" class="btn btn-default">Product Add</button>
+        <button type="submit" class="btn btn-default">Wallet Add</button>
         <button type="reset" class="btn btn-default">Reset</button>
     <form>
 </div>
-@endsection()
+@endsection() 
