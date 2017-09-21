@@ -75,7 +75,7 @@ class AuthController extends Controller
                 'check' => 1
             );
         if (Auth::attempt($auth)){
-            return redirect('authentication/home');
+            return redirect('');
                     }else{
             echo "fail";
         }

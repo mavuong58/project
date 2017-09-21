@@ -48,8 +48,6 @@ class WalletController extends Controller
         return redirect()->route('admin.wallet.list');
     }
     public function getTransfer(){
-       // $transfer = Transfers_money::select('id','transfer_wallet','receive_wallet',)
-        //$receive = 
         $wallet = Wallet::select('id','name')->get()->toArray();
         return view('admin.wallet.transfer',compact('wallet'));
     }
@@ -64,18 +62,18 @@ class WalletController extends Controller
                 // [ $transfer->amount >= $request->txtAmount ]
             );
 
-        
+        // change info for transfer wallet
         $transfer->name = $transfer->name;
         $transfer->amount =$transfer->amount - $request->txtAmount;
         $transfer->user_id = $transfer->user_id;
         $transfer->save();
-
+        // change info for receive wallet
         $receive = Wallet::find($request->sltReceive);
         $receive->name = $receive->name;
         $receive->amount =$receive->amount + $request->txtAmount;
         $receive->user_id = $receive->user_id;
         $receive->save();
-
+        // update info for transfer_money
         $transfers_money = new Transfers_money;
         $transfers_money->transfer_wallet = $request->sltTransfer;
         $transfers_money->receive_wallet  = $request->sltReceive;

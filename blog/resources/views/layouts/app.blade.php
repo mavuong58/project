@@ -5,19 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
-
+    <title>Wallet App</title>  
+     <!-- Bootstrap Core CSS -->
+    <!-- <link href="{{ url('public/layout/css/bootstrap.min.css') }}" rel="stylesheet"> -->
+    <!-- Custom CSS -->
+    <link href="{{ url('public/layout/css/shop-homepage.css') }}" rel="stylesheet">
+    <link href="{{ url('public/layout/css/my.css') }}" rel="stylesheet">
     <!-- Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
-
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
-
     <style>
         body {
             font-family: 'Lato';
+            margin-top: -70px;
         }
 
         .fa-btn {
@@ -57,28 +60,18 @@
                         <li><a href="{{ url('/login') }}">Login</a></li>
                         <li><a href="{{ url('/register') }}">Register</a></li>
                     @else
-                        <!-- <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
-
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
-                            </ul>
-                        </li> -->
-                        <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{ Auth::user()->name }}
+                        
+                     <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">{{ Auth::user()->name }}
                         <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="{{ url('/admin/wallet/list') }}"><i class="fa fa-user fa-fw"></i> User Profile</a>
                         </li>
-                       <!--  <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li> -->
                         <li class="divider"></li>
                         <li><a href="{{ url('/logout') }}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
-                    </ul>
+                    </ul> 
                     <!-- /.dropdown-user -->
                 </li>
                     @endif
@@ -89,7 +82,11 @@
     </nav>
 
     @yield('content')
-
+     <!-- jQuery -->
+    <script src="{{ url('public/layout/js/jquery.js') }}"></script>
+    <!-- Bootstrap Core JavaScript -->
+   <!--  <script src="{{ url('public/layout/js/bootstrap.min.js') }}"></script> -->
+    <script src="{{ url('public/layout/js/my.js') }}"></script>
     <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
