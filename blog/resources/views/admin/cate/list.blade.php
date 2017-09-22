@@ -12,6 +12,7 @@
         <tr align="center">
             <th>ID</th>
             <th>Name</th>
+            <th>parent cate</th>
             <th>Delete</th>
             <th>Edit</th>
         </tr>
@@ -23,8 +24,18 @@
         <tr class="odd gradeX" align="center">
             <td>{!! $stt !!}</td>
             <td>{!! $item["name"] !!}</td>
-            <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a onclick="return cfdelete('delete this wallet')" href="#"> Delete</a></td>
-            <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="#">Edit</a></td>
+            <td>
+                @if ($item["parent_id"] == 0)
+                    {!! "none" !!}
+                @else 
+                    <?php 
+                        $parent = DB::table('categories')->where('id',$item["parent_id"])->first();
+                        echo $parent->name;
+                     ?>
+                @endif
+            </td>
+            <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a onclick="return cfdelete('delete this wallet')" href="{!! URL::route('admin.cate.getDelete',$item['id']) !!}"> Delete</a></td>
+            <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="{!! URL::route('admin.cate.getEdit',$item['id']) !!}">Edit</a></td>
         </tr>
         @endforeach
     </tbody>

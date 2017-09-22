@@ -29,7 +29,7 @@ class WalletController extends Controller
     public function getDelete($id){
             $wallet = Wallet::find($id);
             $wallet->delete($id);
-            return redirect()->route('admin.wallet.list')->with(['flash_level'=>'success','flash_message'=>'success !! complate delete wallet']);
+            return redirect()->route('admin.wallet.list');
     }
     public function getEdit($id){
         $data = Wallet::findOrFail($id)->toArray();

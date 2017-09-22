@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Wallet App</title>  
+    <title>Money</title>  
      <!-- Bootstrap Core CSS -->
     <!-- <link href="{{ url('public/layout/css/bootstrap.min.css') }}" rel="stylesheet"> -->
     <!-- Custom CSS -->
